@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://xguab3e42dub"]
+
+[ext_resource type="Texture2D" uid="uid://brfvopggfwiw2" path="res://Assets/sprites/seta.png" id="1_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://cxrgakep0fo4c" path="res://Assets/sprites/pacman.png" id="2_6t5aa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v0iea"]
+radius = 7.95459
+
+[node name="player" type="CharacterBody2D"]
+collision_mask = 78
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_v0iea")
+
+[node name="Direction" type="Sprite2D" parent="."]
+position = Vector2(-6.08096, 0.0239196)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_cvnsp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_6t5aa")

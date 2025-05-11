@@ -1,0 +1,106 @@
+[gd_scene load_steps=9 format=3 uid="uid://crg0ea8yqo1po"]
+
+[ext_resource type="Texture2D" uid="uid://cq1xv7b78oebc" path="res://Assets/sprites/fundoPacMan.webp" id="1_v6p8y"]
+[ext_resource type="Texture2D" uid="uid://cdij3i6v8l7t3" path="res://Assets/sprites/pacmac-removebg-preview-removebg-preview.png" id="2_05l2w"]
+[ext_resource type="Theme" uid="uid://dhmwuc8la8swv" path="res://botao.tres" id="3_twnyg"]
+[ext_resource type="Texture2D" uid="uid://c53a85fqhccjj" path="res://Assets/sprites/Pac-Man_ingame_and_2D_alternative_design-removebg-preview.png" id="4_hafda"]
+
+[sub_resource type="GDScript" id="GDScript_twnyg"]
+script/source = "extends Control
+
+
+func _on_start_pressed() -> void:
+	get_tree().change_scene_to_file(\"res://Scenes/level_select.tscn\")
+
+
+func _on_help_pressed() -> void:
+	get_tree().change_scene_to_file(\"res://Scenes/help.tscn\")
+
+
+func _on_exit_pressed() -> void:
+	get_tree().quit()
+"
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_05l2w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hafda"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tpml5"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_twnyg")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 703.0
+grow_vertical = 2
+
+[node name="bg" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_v6p8y")
+expand_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 0
+
+[node name="logo" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+texture = ExtResource("2_05l2w")
+
+[node name="HSeparator3" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_05l2w")
+
+[node name="START" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_twnyg")
+text = "START
+"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_hafda")
+
+[node name="HELP" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_twnyg")
+text = "HELP
+"
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_tpml5")
+
+[node name="EXIT" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_twnyg")
+text = "EXIT
+"
+
+[node name="PacMan" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_hafda")
+stretch_mode = 3
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/START" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/HELP" to="." method="_on_help_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/EXIT" to="." method="_on_exit_pressed"]

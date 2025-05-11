@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://bf1ts1tuq0iac"]
+
+[ext_resource type="Script" uid="uid://ckp1esf0w8x4a" path="res://Assets/scripts/teleport.gd" id="1_38lr0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1l0tm"]
+size = Vector2(8, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v158k"]
+size = Vector2(8, 16)
+
+[node name="teleport" type="Node2D"]
+script = ExtResource("1_38lr0")
+
+[node name="left" type="Area2D" parent="."]
+position = Vector2(8, 162)
+
+[node name="left_collision" type="CollisionShape2D" parent="left"]
+position = Vector2(-12, 6)
+shape = SubResource("RectangleShape2D_1l0tm")
+
+[node name="right" type="Area2D" parent="."]
+position = Vector2(296, 162)
+
+[node name="right_collision" type="CollisionShape2D" parent="right"]
+position = Vector2(12, 6)
+shape = SubResource("RectangleShape2D_v158k")
+
+[connection signal="body_entered" from="left" to="." method="_on_left_body_entered"]
+[connection signal="body_exited" from="left" to="." method="_on_left_body_exited"]
+[connection signal="body_entered" from="right" to="." method="_on_right_body_entered"]
+[connection signal="body_exited" from="right" to="." method="_on_right_body_exited"]

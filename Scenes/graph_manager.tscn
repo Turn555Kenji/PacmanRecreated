@@ -1,0 +1,70 @@
+[gd_scene load_steps=2 format=3 uid="uid://bh37dtrixdhfh"]
+
+[sub_resource type="GDScript" id="GDScript_kslr2"]
+script/source = "# File: Level.gd
+extends Node2D
+
+@onready var tilemap: TileMap = $\"../level\"
+
+const TILE_SIZE = 16  # Change this to match your tile size
+const INTERSECTION_SCENE = preload(\"res://intersection.gd\")  # Assuming this is your script, no .tscn
+
+var intersections: Array = []
+var intersection_map := {}  # grid_pos (Vector2i) -> Intersection
+
+func _ready():
+	intersections = detect_intersections()
+	connect_intersections()
+	print(\"Found %d intersections.\" % intersections.size())
+
+func is_walkable(pos: Vector2i) -> bool:
+	# Adjust this logic if you use multiple layers or tile source IDs
+	return tilemap.get_cell_source_id(0, pos) != -1
+
+func detect_intersections() -> Array:
+	var found := []
+	var used_rect = tilemap.get_used_rect()
+
+	for y in range(used_rect.position.y, used_rect.end.y):
+		for x in range(used_rect.position.x, used_rect.end.x):
+			var pos = Vector2i(x, y)
+			if not is_walkable(pos):
+				continue
+
+			var open_dirs := []
+			for dir in [Vector2i.LEFT, Vector2i.RIGHT, Vector2i.UP, Vector2i.DOWN]:
+				if is_walkable(pos + dir):
+					open_dirs.append(dir)
+
+			if open_dirs.size() >= 3:
+				var intersection = INTERSECTION_SCENE.new()
+				intersection.position = pos * TILE_SIZE
+				add_child(intersection)
+				found.append(intersection)
+				intersection_map[pos] = intersection
+
+	return found
+
+func connect_intersections():
+	for inter in intersections:
+		var origin = Vector2i(inter.position / TILE_SIZE)
+
+		for dir in [Vector2i.LEFT, Vector2i.RIGHT, Vector2i.UP, Vector2i.DOWN]:
+			var current = origin
+			while true:
+				current += dir
+				if not is_walkable(current):
+					break
+				if intersection_map.has(current):
+					var neighbor: Intersection = intersection_map[current]
+					
+					# Connect bidirectionally only once
+					if not inter.neighbors.has(dir):
+						inter.add_neighbor(dir, neighbor)
+						neighbor.add_neighbor(-dir, inter)
+					
+					break
+"
+
+[node name="graphManager" type="Node2D"]
+script = SubResource("GDScript_kslr2")

@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvltw7ddpf6ry"]
+
+[ext_resource type="PackedScene" uid="uid://c1q1uaagnc1no" path="res://Scenes/map.tscn" id="1_qxrlw"]
+[ext_resource type="PackedScene" uid="uid://xguab3e42dub" path="res://Scenes/player.tscn" id="2_wrm1d"]
+[ext_resource type="Script" uid="uid://8qftyxsflo1u" path="res://Assets/scripts/player.gd" id="3_wrm1d"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Tiles" parent="." instance=ExtResource("1_qxrlw")]
+position = Vector2(112, 128)
+
+[node name="Area2D" parent="." instance=ExtResource("2_wrm1d")]
+position = Vector2(112, 88)
+script = ExtResource("3_wrm1d")

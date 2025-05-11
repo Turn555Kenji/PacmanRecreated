@@ -1,0 +1,123 @@
+[gd_scene load_steps=5 format=3 uid="uid://cywdtt41xxxrx"]
+
+[ext_resource type="Texture2D" uid="uid://cfu6yja4nqv3i" path="res://Assets/sprites/setas1.jpg" id="1_e3oed"]
+[ext_resource type="Script" path="res://Assets/scripts/help.gd" id="1_x1pvs"]
+[ext_resource type="Theme" uid="uid://dhmwuc8la8swv" path="res://botao.tres" id="2_377fx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4abyq"]
+
+[node name="Help" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x1pvs")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
+color = Color(0.0854578, 0.219119, 0.530709, 1)
+
+[node name="BoxContainer" type="BoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="help" type="Label" parent="MarginContainer/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 40
+text = "HELP"
+
+[node name="BoxContainer2" type="BoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.282
+anchor_right = 1.0
+anchor_bottom = 0.282
+offset_top = -101.736
+offset_bottom = 101.264
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="Objetivos" type="Label" parent="BoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.993535, 0.879684, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "  OBJETIVO:"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="BoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/bold_italics_font_size = 20
+theme_override_font_sizes/italics_font_size = 20
+theme_override_font_sizes/mono_font_size = 20
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+text = "O objetivo do jogo é guiar o personagem por um labirinto, comendo todos os “pac-dots” para completar a fase. Durante o percurso, Pac-Man deve evitar os fantasmas, que o fazem perder uma vida ao tocá-lo. O jogador pode usar power pellets para deixar os fantasmas vulneráveis por um tempo e comê-los, ganhando pontos extras."
+
+[node name="BoxContainer3" type="BoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.569
+anchor_right = 1.0
+anchor_bottom = 0.569
+offset_top = -49.712
+offset_bottom = 50.288
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="Objetivos" type="Label" parent="BoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.993535, 0.879684, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "  CONTROLES:"
+
+[node name="HSeparator" type="HSeparator" parent="BoxContainer3"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_4abyq")
+
+[node name="TextureRect" type="TextureRect" parent="BoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture = ExtResource("1_e3oed")
+
+[node name="BoxContainer4" type="BoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.074
+anchor_top = 0.948
+anchor_right = 0.074
+anchor_bottom = 0.948
+offset_left = -30.952
+offset_top = -15.3041
+offset_right = 31.048
+offset_bottom = 14.6959
+grow_vertical = 0
+
+[node name="Button" type="Button" parent="BoxContainer4"]
+layout_mode = 2
+theme = ExtResource("2_377fx")
+text = "VOLTAR
+"
+
+[connection signal="pressed" from="BoxContainer4/Button" to="." method="_on_button_pressed"]

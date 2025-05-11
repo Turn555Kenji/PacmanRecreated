@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dv3fkqono0aaa"]
+
+[ext_resource type="Script" uid="uid://d4ljfvrl6123i" path="res://Assets/scripts/clyde.gd" id="1_fv8ig"]
+[ext_resource type="Texture2D" uid="uid://20ar74hwouo4" path="res://Assets/sprites/clyde.png" id="2_fv8ig"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fv8ig"]
+radius = 4.65777
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_arvl7"]
+radius = 1.73705
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+collision_mask = 78
+script = ExtResource("1_fv8ig")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("2_fv8ig")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.00731277, 0.0103154)
+shape = SubResource("CircleShape2D_fv8ig")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 129
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_arvl7")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

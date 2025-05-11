@@ -1,0 +1,789 @@
+[gd_scene load_steps=19 format=3 uid="uid://kkukdmayu6jh"]
+
+[ext_resource type="Script" uid="uid://d7lydd12okw4" path="res://Assets/scripts/game.gd" id="1_85qyi"]
+[ext_resource type="PackedScene" uid="uid://xguab3e42dub" path="res://Scenes/player.tscn" id="2_wrm1d"]
+[ext_resource type="Script" uid="uid://8qftyxsflo1u" path="res://Assets/scripts/player.gd" id="3_wrm1d"]
+[ext_resource type="Script" uid="uid://bdhn0mjavnyir" path="res://Assets/scripts/scoring.gd" id="4_1l0tm"]
+[ext_resource type="PackedScene" uid="uid://cr5jkbin3qkgs" path="res://Scenes/pellet.tscn" id="4_3dryh"]
+[ext_resource type="PackedScene" uid="uid://dd72sqn6p8w05" path="res://Scenes/large_pellet.tscn" id="5_wowpa"]
+[ext_resource type="PackedScene" uid="uid://bf1ts1tuq0iac" path="res://Scenes/teleport.tscn" id="6_i6g32"]
+[ext_resource type="PackedScene" uid="uid://bcsowdj5a6g88" path="res://Scenes/blinky.tscn" id="8_v158k"]
+[ext_resource type="PackedScene" uid="uid://cxr3yv5vtrdhy" path="res://Scenes/intersection.tscn" id="9_h4fw4"]
+[ext_resource type="PackedScene" uid="uid://bklqvm8h05y7o" path="res://Scenes/pinky.tscn" id="9_rku1e"]
+[ext_resource type="Script" uid="uid://c3uibde3jha4y" path="res://Assets/scripts/graph.gd" id="10_o5yvi"]
+[ext_resource type="PackedScene" uid="uid://8vt850sa35rp" path="res://Scenes/debug_graph.tscn" id="11_o5yvi"]
+[ext_resource type="PackedScene" uid="uid://dv3fkqono0aaa" path="res://Scenes/clyde.tscn" id="12_nnt18"]
+[ext_resource type="PackedScene" uid="uid://8x6tdlrygwel" path="res://Scenes/inky.tscn" id="13_rfjv2"]
+[ext_resource type="Script" uid="uid://gyhl0e3pmxou" path="res://Assets/scripts/testing.gd" id="14_1phco"]
+[ext_resource type="Texture2D" uid="uid://bb6myhfi4xnhw" path="res://Assets/sprites/grid.png" id="14_nb51f"]
+[ext_resource type="PackedScene" uid="uid://itvvempasmxl" path="res://Scenes/interface.tscn" id="17_ewbju"]
+[ext_resource type="PackedScene" uid="uid://ci5t3hcyd1o7x" path="res://Scenes/level3.tscn" id="18_3txj3"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_85qyi")
+
+[node name="level" parent="." instance=ExtResource("18_3txj3")]
+
+[node name="pellets" type="Node" parent="." node_paths=PackedStringArray("ghosts")]
+script = ExtResource("4_1l0tm")
+ghosts = [NodePath("../blinky"), NodePath("../pinky"), NodePath("../inky"), NodePath("../clyde")]
+
+[node name="pellet" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(72, 168)
+
+[node name="pellet2" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(72, 184)
+
+[node name="pellet3" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(280, 200)
+
+[node name="pellet4" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(24, 152)
+
+[node name="pellet5" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(72, 232)
+
+[node name="pellet6" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(24, 168)
+
+[node name="pellet7" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(72, 264)
+
+[node name="pellet8" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(72, 280)
+
+[node name="pellet9" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(72, 104)
+
+[node name="pellet10" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(56, 120)
+
+[node name="pellet11" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(72, 72)
+
+[node name="pellet12" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(40, 72)
+
+[node name="pellet13" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(56, 104)
+
+[node name="pellet14" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(56, 232)
+
+[node name="pellet15" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(24, 136)
+
+[node name="pellet16" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(168, 104)
+
+[node name="pellet17" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(232, 184)
+
+[node name="pellet18" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(248, 200)
+
+[node name="pellet19" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(280, 184)
+
+[node name="pellet20" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(232, 232)
+
+[node name="pellet21" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(136, 248)
+
+[node name="pellet22" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(232, 264)
+
+[node name="pellet23" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(232, 280)
+
+[node name="pellet24" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(264, 232)
+
+[node name="pellet25" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(152, 24)
+
+[node name="pellet26" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(232, 72)
+
+[node name="pellet27" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(248, 120)
+
+[node name="pellet28" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(232, 104)
+
+[node name="pellet29" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(216, 104)
+
+[node name="pellet30" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(264, 136)
+
+[node name="pellet31" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(232, 200)
+
+[node name="pellet32" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(232, 168)
+
+[node name="pellet33" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(232, 24)
+
+[node name="pellet34" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(280, 120)
+
+[node name="pellet35" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(72, 24)
+
+[node name="pellet36" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(40, 232)
+
+[node name="pellet37" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(24, 104)
+
+[node name="pellet38" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(24, 120)
+
+[node name="pellet39" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(88, 72)
+
+[node name="pellet40" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(104, 72)
+
+[node name="pellet41" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(40, 216)
+
+[node name="pellet42" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(40, 136)
+
+[node name="pellet44" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(24, 88)
+
+[node name="pellet45" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(56, 72)
+
+[node name="pellet46" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(24, 56)
+
+[node name="pellet47" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(24, 40)
+
+[node name="pellet48" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(104, 104)
+
+[node name="pellet49" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(104, 88)
+
+[node name="pellet50" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(24, 24)
+
+[node name="pellet51" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(40, 24)
+
+[node name="pellet52" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(56, 24)
+
+[node name="pellet53" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(88, 24)
+
+[node name="pellet54" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(104, 24)
+
+[node name="pellet55" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(120, 24)
+
+[node name="pellet56" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(184, 24)
+
+[node name="pellet57" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(200, 24)
+
+[node name="pellet58" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(216, 24)
+
+[node name="pellet59" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(248, 24)
+
+[node name="pellet60" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(264, 24)
+
+[node name="pellet61" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(280, 24)
+
+[node name="pellet62" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(24, 328)
+
+[node name="pellet63" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(40, 328)
+
+[node name="pellet64" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(56, 328)
+
+[node name="pellet65" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(136, 104)
+
+[node name="pellet66" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(88, 328)
+
+[node name="pellet67" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(104, 312)
+
+[node name="pellet68" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(232, 312)
+
+[node name="pellet69" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(136, 328)
+
+[node name="pellet70" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(152, 328)
+
+[node name="pellet71" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(168, 328)
+
+[node name="pellet72" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(248, 264)
+
+[node name="pellet73" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(200, 312)
+
+[node name="pellet74" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(216, 328)
+
+[node name="pellet75" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(232, 328)
+
+[node name="pellet76" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(248, 328)
+
+[node name="pellet77" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(264, 328)
+
+[node name="pellet78" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(280, 328)
+
+[node name="pellet79" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(88, 232)
+
+[node name="pellet80" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(104, 232)
+
+[node name="pellet81" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(120, 232)
+
+[node name="pellet82" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(136, 232)
+
+[node name="pellet83" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(168, 232)
+
+[node name="pellet84" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(184, 232)
+
+[node name="pellet85" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(200, 232)
+
+[node name="pellet86" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(216, 232)
+
+[node name="pellet87" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(168, 264)
+
+[node name="pellet88" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(184, 264)
+
+[node name="pellet89" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(200, 264)
+
+[node name="pellet91" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(120, 264)
+
+[node name="pellet92" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(104, 264)
+
+[node name="pellet93" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(24, 184)
+
+[node name="pellet94" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(136, 264)
+
+[node name="pellet95" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(56, 200)
+
+[node name="pellet96" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(232, 152)
+
+[node name="pellet98" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(40, 248)
+
+[node name="pellet99" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(40, 296)
+
+[node name="pellet100" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(24, 296)
+
+[node name="pellet102" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(264, 216)
+
+[node name="pellet103" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(248, 232)
+
+[node name="pellet104" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(280, 296)
+
+[node name="pellet105" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(264, 296)
+
+[node name="pellet106" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(216, 264)
+
+[node name="pellet116" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(152, 104)
+
+[node name="pellet117" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(136, 72)
+
+[node name="pellet118" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(120, 72)
+
+[node name="pellet119" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(200, 104)
+
+[node name="pellet120" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(184, 104)
+
+[node name="pellet123" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(264, 248)
+
+[node name="pellet124" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(280, 168)
+
+[node name="pellet125" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(280, 104)
+
+[node name="pellet126" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(264, 72)
+
+[node name="pellet127" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(248, 72)
+
+[node name="pellet128" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(216, 72)
+
+[node name="pellet129" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(200, 72)
+
+[node name="pellet130" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(184, 72)
+
+[node name="pellet131" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(136, 296)
+
+[node name="pellet132" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(120, 296)
+
+[node name="pellet133" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(104, 296)
+
+[node name="pellet134" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(200, 296)
+
+[node name="pellet135" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(184, 296)
+
+[node name="pellet136" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(168, 296)
+
+[node name="pellet146" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(56, 264)
+
+[node name="pellet147" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(72, 312)
+
+[node name="pellet148" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(40, 264)
+
+[node name="pellet149" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(40, 280)
+
+[node name="pellet150" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(280, 152)
+
+[node name="pellet151" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(264, 264)
+
+[node name="pellet152" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(88, 264)
+
+[node name="pellet153" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(264, 280)
+
+[node name="pellet154" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(88, 104)
+
+[node name="pellet161" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(232, 136)
+
+[node name="pellet162" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(104, 280)
+
+[node name="pellet163" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(200, 280)
+
+[node name="pellet164" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(168, 312)
+
+[node name="pellet165" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(136, 312)
+
+[node name="pellet166" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(120, 104)
+
+[node name="pellet174" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(264, 200)
+
+[node name="pellet175" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(168, 248)
+
+[node name="pellet176" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(24, 312)
+
+[node name="pellet177" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(280, 312)
+
+[node name="pellet180" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(200, 88)
+
+[node name="pellet181" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(168, 72)
+
+[node name="pellet182" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(280, 40)
+
+[node name="pellet183" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(280, 56)
+
+[node name="pellet184" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(280, 88)
+
+[node name="pellet185" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(168, 24)
+
+[node name="pellet186" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(136, 24)
+
+[node name="pellet187" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(136, 40)
+
+[node name="pellet188" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(136, 56)
+
+[node name="pellet189" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(168, 40)
+
+[node name="pellet190" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(168, 56)
+
+[node name="largepellet" parent="pellets" instance=ExtResource("5_wowpa")]
+position = Vector2(72, 296)
+
+[node name="largepellet2" parent="pellets" instance=ExtResource("5_wowpa")]
+position = Vector2(24, 72)
+
+[node name="largepellet3" parent="pellets" instance=ExtResource("5_wowpa")]
+position = Vector2(280, 72)
+
+[node name="largepellet4" parent="pellets" instance=ExtResource("5_wowpa")]
+position = Vector2(232, 296)
+
+[node name="pellet97" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(72, 136)
+
+[node name="pellet101" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(72, 152)
+
+[node name="pellet107" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(56, 136)
+
+[node name="pellet108" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(72, 200)
+
+[node name="pellet109" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(24, 200)
+
+[node name="pellet110" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(40, 200)
+
+[node name="pellet111" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(248, 136)
+
+[node name="pellet112" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(248, 104)
+
+[node name="pellet113" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(280, 136)
+
+[node name="pellet114" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(72, 328)
+
+[node name="pellet115" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(104, 328)
+
+[node name="pellet121" parent="pellets" instance=ExtResource("4_3dryh")]
+position = Vector2(200, 328)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(160, 176)
+offset = Vector2(-7.8, -7.185)
+zoom = Vector2(2, 1.76)
+
+[node name="teleport" parent="." instance=ExtResource("6_i6g32")]
+
+[node name="blinky" parent="." instance=ExtResource("8_v158k")]
+position = Vector2(152, 136)
+
+[node name="blinky_debug" parent="." instance=ExtResource("11_o5yvi")]
+
+[node name="pinky" parent="." instance=ExtResource("9_rku1e")]
+position = Vector2(152, 168)
+
+[node name="pinky_debug" parent="." instance=ExtResource("11_o5yvi")]
+
+[node name="inky" parent="." instance=ExtResource("13_rfjv2")]
+position = Vector2(136, 168)
+
+[node name="inky_graph" parent="." instance=ExtResource("11_o5yvi")]
+
+[node name="clyde" parent="." instance=ExtResource("12_nnt18")]
+position = Vector2(168, 168)
+
+[node name="clyde_debug" parent="." instance=ExtResource("11_o5yvi")]
+
+[node name="player" parent="." instance=ExtResource("2_wrm1d")]
+position = Vector2(152, 264)
+script = ExtResource("3_wrm1d")
+
+[node name="graph" type="Node2D" parent="."]
+script = ExtResource("10_o5yvi")
+
+[node name="1" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(24, 24)
+
+[node name="3" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(136, 24)
+
+[node name="4" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(168, 24)
+
+[node name="5" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(280, 200)
+
+[node name="6" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(280, 24)
+
+[node name="7" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(24, 72)
+
+[node name="8" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(232, 136)
+
+[node name="9" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(104, 72)
+
+[node name="10" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(136, 72)
+
+[node name="11" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(168, 72)
+
+[node name="12" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(200, 72)
+
+[node name="13" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(56, 136)
+
+[node name="14" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(280, 72)
+
+[node name="15" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(24, 104)
+
+[node name="16" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(56, 104)
+
+[node name="17" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(104, 104)
+
+[node name="18" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(72, 328)
+
+[node name="19" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(232, 328)
+
+[node name="20" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(200, 104)
+
+[node name="21" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(248, 104)
+
+[node name="22" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(264, 200)
+
+[node name="23" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(104, 136)
+
+[node name="24" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(280, 136)
+
+[node name="26" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(200, 136)
+
+[node name="27" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(24, 168)
+
+[node name="28" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(104, 152)
+
+[node name="29" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(200, 152)
+
+[node name="30" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(280, 168)
+
+[node name="31" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(104, 200)
+
+[node name="32" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(232, 200)
+
+[node name="33" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(232, 152)
+
+[node name="34" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(200, 200)
+
+[node name="35" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(24, 200)
+
+[node name="36" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(72, 200)
+
+[node name="37" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(104, 232)
+
+[node name="38" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(136, 232)
+
+[node name="39" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(168, 232)
+
+[node name="40" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(200, 232)
+
+[node name="42" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(264, 232)
+
+[node name="43" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(40, 232)
+
+[node name="44" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(40, 264)
+
+[node name="45" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(72, 264)
+
+[node name="46" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(104, 264)
+
+[node name="47" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(136, 264)
+
+[node name="48" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(168, 264)
+
+[node name="49" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(200, 264)
+
+[node name="50" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(232, 264)
+
+[node name="51" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(264, 264)
+
+[node name="52" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(104, 328)
+
+[node name="53" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(200, 328)
+
+[node name="54" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(24, 296)
+
+[node name="55" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(40, 296)
+
+[node name="56" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(72, 296)
+
+[node name="57" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(104, 296)
+
+[node name="58" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(136, 296)
+
+[node name="59" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(168, 296)
+
+[node name="60" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(200, 296)
+
+[node name="61" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(232, 296)
+
+[node name="62" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(264, 296)
+
+[node name="63" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(280, 296)
+
+[node name="64" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(24, 328)
+
+[node name="65" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(136, 328)
+
+[node name="66" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(168, 328)
+
+[node name="67" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(280, 328)
+
+[node name="68" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(-8, 168)
+
+[node name="69" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(312, 168)
+
+[node name="70" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(24, 136)
+
+[node name="71" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(72, 136)
+
+[node name="72" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(40, 200)
+
+[node name="73" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(72, 152)
+
+[node name="25" parent="graph" instance=ExtResource("9_h4fw4")]
+position = Vector2(248, 136)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("14_nb51f")
+script = ExtResource("14_1phco")
+
+[node name="interface" parent="." instance=ExtResource("17_ewbju")]
+
+[connection signal="body_entered" from="pellets/largepellet" to="pellets/largepellet" method="_on_body_entered"]
+[connection signal="body_entered" from="pellets/largepellet2" to="pellets/largepellet2" method="_on_body_entered"]
+[connection signal="body_entered" from="pellets/largepellet3" to="pellets/largepellet3" method="_on_body_entered"]
+[connection signal="body_entered" from="pellets/largepellet4" to="pellets/largepellet4" method="_on_body_entered"]
